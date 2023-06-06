@@ -5,10 +5,10 @@ const Navbar = () => {
 
 
     const navsections = <>
-     <li className="text-xl"><Link to="/">Home</Link></li>
-     <li className="text-xl"><Link to="/allInstructors">Instructors</Link></li>
-     <li className="text-xl"><Link to="/allClasses">Classes</Link></li>
-     <li className="text-xl"><Link to="/"> Dashboard</Link></li>
+     <li className="text-lg"><Link to="/">Home</Link></li>
+     <li className="text-lg"><Link to="/allInstructors">Instructors</Link></li>
+     <li className="text-lg"><Link to="/allClasses">Classes</Link></li>
+     <li className="text-lg"><Link to="/"> Dashboard</Link></li>
     </>
 
 
@@ -24,7 +24,7 @@ const Navbar = () => {
                             {navsections}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost uppercase text-2xl">Summer Camp</Link>
+                    <Link to="/" className="btn btn-ghost uppercase text-xl">Art of Sound Institute</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
