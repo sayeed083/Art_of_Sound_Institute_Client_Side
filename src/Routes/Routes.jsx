@@ -2,6 +2,8 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../Layouts/Main";
+import AllClasses from "../Pages/AllClasses/AllClasses";
+import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import Home from "../Pages/Home/Home/Home";
 
 
@@ -13,7 +15,15 @@ import Home from "../Pages/Home/Home/Home";
         {
             path: "/",
             element: <Home></Home>
-        }
+        },
+        {
+            path: "allInstructors",
+            element: <AllInstructors></AllInstructors>
+        },
+        {
+            path: "allClasses",
+            element: <AllClasses></AllClasses>
+        },
       ]
     },
   ]);
