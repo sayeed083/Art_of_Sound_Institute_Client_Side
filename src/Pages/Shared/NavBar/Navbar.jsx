@@ -5,16 +5,16 @@ const Navbar = () => {
 
 
     const navsections = <>
-     <li><Link to="/">Home</Link></li>
-     <li><Link to="/allInstructors">Instructors</Link></li>
-     <li><Link to="/allClasses">Classes</Link></li>
-     <li><Link to="/"> Dashboard</Link></li>
+     <li className="text-xl"><Link to="/">Home</Link></li>
+     <li className="text-xl"><Link to="/allInstructors">Instructors</Link></li>
+     <li className="text-xl"><Link to="/allClasses">Classes</Link></li>
+     <li className="text-xl"><Link to="/"> Dashboard</Link></li>
     </>
 
 
     return (
         <div>
-            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl text-white bg-black">
+            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl text-black bg-teal-700">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,7 +24,7 @@ const Navbar = () => {
                             {navsections}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Summer Camp</a>
+                    <Link to="/" className="btn btn-ghost uppercase text-2xl">Summer Camp</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -32,7 +32,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    <button className="btn glass">Log In</button>
                 </div>
             </div>
         </div>
