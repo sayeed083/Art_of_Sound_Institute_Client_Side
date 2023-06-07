@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import image from "../../../assets/authentication.png"
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Login = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -19,11 +20,20 @@ const Login = () => {
     };
 
     const onSubmit = data => {
-        console.log(data);
+        
         signIn(data.email, data.password)
         .then(result => {
-            const loggedInUser = result.user;
-            console.log(loggedInUser);
+            const user = result.user;
+            console.log(user);
+            Swal.fire({
+                title: 'User Login Successful.',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
             navigate(from, { replace: true });
         })
 

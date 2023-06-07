@@ -1,14 +1,22 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
 
 
     const navsections = <>
-     <li className="text-lg"><Link to="/">Home</Link></li>
-     <li className="text-lg"><Link to="/allInstructors">Instructors</Link></li>
-     <li className="text-lg"><Link to="/allClasses">Classes</Link></li>
-     <li className="text-lg"><Link to="/"> Dashboard</Link></li>
+        <li className="text-lg"><Link to="/">Home</Link></li>
+        <li className="text-lg"><Link to="/allInstructors">Instructors</Link></li>
+        <li className="text-lg"><Link to="/allClasses">Classes</Link></li>
+        <li className="text-lg"><Link to="/"> Dashboard</Link></li>
     </>
 
 
@@ -32,9 +40,28 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login">
-                    <button className="btn glass">Log In</button>
-                    </Link>
+
+                    {/* For User Photo And on Hover The Name */}
+                    {user &&
+                        <div className="tooltip " data-tip={user.displayName}>
+                            <img className="w-20 rounded-full mr-6" src={user.photoURL} alt="" />
+                        </div>
+
+                    }
+
+                    {/* Toggle Login LogOut */}
+                    {
+                        user ? <>
+                            <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+                        </> : <>
+                            <Link to="/login">
+                                <button className="btn glass">Log In</button>
+                            </Link>
+                        </>
+                    }
+
+
+
                 </div>
             </div>
         </div>
