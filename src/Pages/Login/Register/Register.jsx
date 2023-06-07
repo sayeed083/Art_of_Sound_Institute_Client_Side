@@ -4,13 +4,13 @@ import image from "../../../assets/authentication.png"
 
 const Register = () => {
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors }, watch, getValues } = useForm();
 
     const onSubmit = data => {
         console.log(data);
         console.log("sas");
     }
-
+    const password = watch('password');
 
     return (
         <div>
@@ -45,8 +45,8 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="password" {...register("c-password", { required: true })} name="c-password" placeholder="Confirm password" className="input input-bordered" />
-
+                                <input type="password" {...register("confirmPassword", { required: true }, { validate: (value) => value === getValues(password) || 'Passwords do not match' })} name="confirmPassword" placeholder="Confirm password" className="input input-bordered" />
+                                {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
                             </div>
 
                             <div className="form-control">
