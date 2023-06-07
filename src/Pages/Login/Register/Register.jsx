@@ -4,13 +4,12 @@ import image from "../../../assets/authentication.png"
 
 const Register = () => {
 
-    const { register, handleSubmit, reset, formState: { errors }, watch, getValues } = useForm();
+    const { register, handleSubmit, reset, formState: { errors }, watch } = useForm();
 
     const onSubmit = data => {
         console.log(data);
-        console.log("sas");
     }
-    const password = watch('password');
+    
 
     return (
         <div>
@@ -41,13 +40,31 @@ const Register = () => {
                                 <input type="password" {...register("password", { required: true })} name="password" placeholder="password" className="input input-bordered" />
 
                             </div>
+
+
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="password" {...register("confirmPassword", { required: true }, { validate: (value) => value === getValues(password) || 'Passwords do not match' })} name="confirmPassword" placeholder="Confirm password" className="input input-bordered" />
-                                {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
+                                <input type="password" {...register("confirmPassword", {
+                                    required: true,
+                                    validate: value => value === watch('password') || "Passwords do not match"
+                                })} name="confirmPassword" placeholder="confirm password" className="input input-bordered" />
+                                {errors.confirmPassword && <p className="text-red-500 mt-1">{errors.confirmPassword.message}</p>}
                             </div>
+
+
+
+
+
+
+
+
+
+
+                           
+
 
                             <div className="form-control">
                                 <label className="label">
