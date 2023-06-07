@@ -32,7 +32,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <Link to="/login">
                     <button className="btn glass">Log In</button>
+                    </Link>
                 </div>
             </div>
         </div>

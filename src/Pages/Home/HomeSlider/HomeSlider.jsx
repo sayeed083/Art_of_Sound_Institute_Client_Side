@@ -6,6 +6,12 @@ const HomeSlider = () => {
 
     return (
         <div>
+
+            <div className="pt-20">
+                <h2 className="text-center text-5xl">Learn the Art of Music</h2>
+            </div>
+
+
             <Carousel>
                 <div className="relative">
                     <img src="https://i.postimg.cc/SxhZSB2V/realistic-2.jpg" />
