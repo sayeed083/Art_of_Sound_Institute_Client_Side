@@ -1,15 +1,39 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import image from "../../../assets/authentication.png"
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
-
+    const { createUser, updatedUserInfo } = useContext(AuthContext);
     const { register, handleSubmit, reset, formState: { errors }, watch } = useForm();
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data);
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updatedUserInfo(data.name, data.photoURL)
+                    .then(() => {
+                        console.log('user profile info updated')
+                        reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate('/');
+
+                    })
+                    .catch(error => console.log(error))
+            })
     }
-    
+
 
     return (
         <div>
@@ -26,7 +50,7 @@ const Register = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" />
-                                
+
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -34,28 +58,28 @@ const Register = () => {
                                 </label>
                                 <input type="email" {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
                                 {errors.email && <span className="text-red-500 mt-2">You Must Give Email</span>}
-                                
+
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" {...register("password", {
-                                        required: true,
-                                        minLength: {
-                                            value: 6,
-                                            message: "Password must be at least 6 characters long",
-                                        },
-                                        pattern: {
-                                            value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$/,
-                                            message: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
-                                        },
-                                    })} name="password" placeholder="password" className="input input-bordered" />
+                                    required: true,
+                                    minLength: {
+                                        value: 6,
+                                        message: "Password must be at least 6 characters long",
+                                    },
+                                    pattern: {
+                                        value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$/,
+                                        message: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+                                    },
+                                })} name="password" placeholder="password" className="input input-bordered" />
                                 {/* {errors.password && <span className="text-red-500 mt-2">This Cannot be Empty</span>} */}
                                 {errors.password && (
                                     <p className="text-red-500 mt-1">{errors.password.message}</p>
                                 )}
-                                
+
 
                             </div>
 
@@ -81,7 +105,7 @@ const Register = () => {
 
 
 
-                           
+
 
 
                             <div className="form-control">
