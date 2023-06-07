@@ -26,18 +26,36 @@ const Register = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" />
+                                
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
+                                {errors.email && <span className="text-red-500 mt-2">You Must Give Email</span>}
+                                
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true })} name="password" placeholder="password" className="input input-bordered" />
+                                <input type="password" {...register("password", {
+                                        required: true,
+                                        minLength: {
+                                            value: 6,
+                                            message: "Password must be at least 6 characters long",
+                                        },
+                                        pattern: {
+                                            value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{6,}$/,
+                                            message: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+                                        },
+                                    })} name="password" placeholder="password" className="input input-bordered" />
+                                {/* {errors.password && <span className="text-red-500 mt-2">This Cannot be Empty</span>} */}
+                                {errors.password && (
+                                    <p className="text-red-500 mt-1">{errors.password.message}</p>
+                                )}
+                                
 
                             </div>
 
