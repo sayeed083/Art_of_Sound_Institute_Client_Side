@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import image from "../../../assets/authentication.png"
+import SocialLogin from "../../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
@@ -20,7 +21,7 @@ const Login = () => {
     };
 
     const onSubmit = data => {
-        
+
         signIn(data.email, data.password)
         .then(result => {
             const user = result.user;
@@ -76,6 +77,8 @@ const Login = () => {
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                             <p><small>No Account? Please <Link className="text-green-400" to="/register">Register!</Link></small></p>
+
+                            <SocialLogin></SocialLogin>
 
                         </form>
                     </div>
