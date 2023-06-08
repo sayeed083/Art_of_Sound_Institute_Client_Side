@@ -6,10 +6,12 @@ import Main from "../Layouts/Main";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
+import AddClass from "../Pages/Dashboard/Instructor/AddClass/AddClass";
 import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass/MySelectedClass";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 
@@ -28,7 +30,7 @@ import PrivateRoute from "./PrivateRoute";
         },
         {
             path: "allClasses",
-            element: <PrivateRoute> <AllClasses></AllClasses></PrivateRoute>
+            element:  <AllClasses></AllClasses>
         },
         {
             path: "login",
@@ -45,13 +47,18 @@ import PrivateRoute from "./PrivateRoute";
       path: "dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
-        {
-          path: "allusers",
-          element: <AllUsers></AllUsers>
-        },
+        
         {
           path: "mySelectedClass",
           element: <MySelectedClass></MySelectedClass>
+        },
+        {
+          path: "addClass",
+          element: <AddClass></AddClass>
+        },
+        {
+          path: "allusers",
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
     }

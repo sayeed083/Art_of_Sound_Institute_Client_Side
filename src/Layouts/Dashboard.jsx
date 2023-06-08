@@ -6,6 +6,7 @@ const Dashboard = () => {
 
     // TODO: load data from the server to have dynamic isAdmin based on Data
     // const isAdmin = true;
+    const isInstructor = true;
     const [isAdmin] = useAdmin();
 
     return (
@@ -27,19 +28,30 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Manage Items</NavLink></li>
                             <li><NavLink to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
                             <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
-                            
-                        </> : 
-                        <>
-                            <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
-                            <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                            <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
-                            <li>
-                                <NavLink to="/dashboard/mySelectedClass"><FaShoppingCart></FaShoppingCart> My Selected Class
-                                    <span className="badge inl badge-secondary"></span>
-                                </NavLink>
 
-                            </li>
-                        </>
+                        </> :
+
+                            isInstructor ? <>
+                                <li><NavLink to="addClass"> <FaUtensils></FaUtensils> Add A Class</NavLink></li>
+
+                            </> :
+
+
+
+
+
+
+                                <>
+                                    <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
+                                    <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
+                                    <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                                    <li>
+                                        <NavLink to="/dashboard/mySelectedClass"><FaShoppingCart></FaShoppingCart> My Selected Class
+                                            <span className="badge inl badge-secondary"></span>
+                                        </NavLink>
+
+                                    </li>
+                                </>
                     }
 
 
