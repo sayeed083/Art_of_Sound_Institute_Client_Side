@@ -6,8 +6,13 @@ import Main from "../Layouts/Main";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
+import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import AddClass from "../Pages/Dashboard/Instructor/AddClass/AddClass";
+import MyClasses from "../Pages/Dashboard/Instructor/MyClasses/MyClasses";
+import MyEnrolledClass from "../Pages/Dashboard/Student/MyEnrolledClass/MyEnrolledClass";
 import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass/MySelectedClass";
+import Payment from "../Pages/Dashboard/Student/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/Student/Payment/PaymentHistory";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
@@ -53,12 +58,35 @@ import PrivateRoute from "./PrivateRoute";
           element: <MySelectedClass></MySelectedClass>
         },
         {
+          path: "myEnrolledClass",
+          element: <MyEnrolledClass></MyEnrolledClass>
+        },
+        {
+          path: "payment",
+          element: <Payment></Payment>
+        },
+        {
+          path: "paymentHistory",
+          element: <PaymentHistory></PaymentHistory>
+        },
+
+        //Instructor Side Routes
+        {
           path: "addClass",
           element: <AddClass></AddClass>
         },
         {
+          path: "myClasses",
+          element: <MyClasses></MyClasses>
+        },
+        // Admin Side Routes :)
+        {
           path: "allusers",
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path: "manageClasses",
+          element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         }
       ]
     }

@@ -1,13 +1,15 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaUsers } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
 
-    // TODO: load data from the server to have dynamic isAdmin based on Data
+    
     // const isAdmin = true;
-    const isInstructor = true;
+    // const isInstructor = true;
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     return (
         <div className="drawer  lg:drawer-open ">
@@ -23,34 +25,23 @@ const Dashboard = () => {
 
                     {
                         isAdmin ? <>
-                            <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/reservations"> <FaUtensils></FaUtensils> Add Items</NavLink></li>
-                            <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Manage Items</NavLink></li>
-                            <li><NavLink to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
-                            <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
+                            <li><NavLink to="/dashboard/manageClasses"><FaHome></FaHome> Manage Classes</NavLink></li>
+                            <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
 
                         </> :
 
                             isInstructor ? <>
-                                <li><NavLink to="addClass"> <FaUtensils></FaUtensils> Add A Class</NavLink></li>
+                                <li><NavLink to="/dashboard/addClass"> <FaUtensils></FaUtensils> Add A Class</NavLink></li>
+                                <li><NavLink to="/dashboard/myClasses"> <FaUtensils></FaUtensils> My Classes</NavLink></li>
 
                             </> :
 
 
-
-
-
-
                                 <>
-                                    <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
-                                    <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                                    <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
-                                    <li>
-                                        <NavLink to="/dashboard/mySelectedClass"><FaShoppingCart></FaShoppingCart> My Selected Class
-                                            <span className="badge inl badge-secondary"></span>
-                                        </NavLink>
-
-                                    </li>
+                                    <li><NavLink to="/dashboard/mySelectedClass"><FaShoppingCart></FaShoppingCart> My Selected Class</NavLink></li>
+                                    <li><NavLink to="/dashboard/myEnrolledClass"><FaCalendarAlt></FaCalendarAlt> My Enrolled Classes</NavLink></li>
+                                    <li><NavLink to="/dashboard/payment"><FaHome></FaHome> Payment</NavLink></li>
+                                    <li><NavLink to="/dashboard/paymentHistory"><FaWallet></FaWallet> Payment History</NavLink></li>
                                 </>
                     }
 
