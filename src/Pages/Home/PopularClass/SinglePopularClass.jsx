@@ -1,12 +1,9 @@
 
-const OneClass = ({ classSingle }) => {
 
-    const { image, name, instructor, availableSeats, price } = classSingle;
-
-
+const SinglePopularClass = ({ oneSingleClass }) => {
+    const { image, name, instructor, availableSeats, price } = oneSingleClass;
     return (
         <div>
-
             <div className="card w-96 glass">
                 <figure><img src={image} alt="car!" /></figure>
                 <div className="card-body">
@@ -19,9 +16,8 @@ const OneClass = ({ classSingle }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
 
-export default OneClass;
+export default SinglePopularClass;

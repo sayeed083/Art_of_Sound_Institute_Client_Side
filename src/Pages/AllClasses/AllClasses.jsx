@@ -16,7 +16,7 @@ const AllClasses = () => {
                 {
                     classes.slice(0,6).map(classSingle => <OneClass
                     key={classSingle._id}
-                    cls={classSingle}
+                    classSingle={classSingle}
                     ></OneClass>)
                 }
             </div>
