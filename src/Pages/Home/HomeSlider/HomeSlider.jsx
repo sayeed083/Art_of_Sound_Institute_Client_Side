@@ -5,11 +5,9 @@ const HomeSlider = () => {
 
 
     return (
-        <div>
+        <div className="pt-[102px]">
 
-            <div className="pt-20">
-                <h2 className="text-center text-5xl">Learn the Art of Music</h2>
-            </div>
+            
 
 
             <Carousel>

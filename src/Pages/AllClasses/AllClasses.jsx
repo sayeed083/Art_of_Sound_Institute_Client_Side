@@ -1,3 +1,4 @@
+import Cover from "../../components/Cover/Cover";
 import useClass from "../../hooks/useClass";
 import OneClass from "./OneClass";
 
@@ -10,8 +11,8 @@ const AllClasses = () => {
 
 
     return (
-        <div>
-            <h2 className="text-center text-6xl py-20">There Are All Classes</h2>
+        <div className="pt-28">
+            <Cover image={'https://i.postimg.cc/25DF7zjL/acoustic.jpg'} title="All Classes"></Cover>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-5 mb-5">
                 {
                     classes.map(classSingle => <OneClass
