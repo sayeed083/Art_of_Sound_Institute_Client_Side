@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Switcher from "../../../components/Switcher";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
@@ -16,13 +17,14 @@ const Navbar = () => {
         <li className="text-lg"><Link to="/">Home</Link></li>
         <li className="text-lg"><Link to="/allInstructors">Instructors</Link></li>
         <li className="text-lg"><Link to="/allClasses">Classes</Link></li>
+        <Switcher></Switcher>
         {user && <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>}
     </>
 
 
     return (
         <div>
-            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl text-black bg-teal-700">
+            <div className="navbar fixed z-10 bg-opacity-30 dark:bg-opacity-30 max-w-screen-xl text-black dark:text-white bg-teal-700 dark:bg-cyan-300">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,6 +61,7 @@ const Navbar = () => {
                             </Link>
                         </>
                     }
+                    
 
 
 
