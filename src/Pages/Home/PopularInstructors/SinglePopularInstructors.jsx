@@ -11,9 +11,6 @@ const SinglePopularInstructors = ({ singleInst }) => {
                     <p>Class:{classesTaken[1]} </p>
                     <p>Email: {email}</p>
                     <p>Classes Taken:{numberOfClassesTaken}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn bg-cyan-300">Select</button>
-                    </div>
                 </div>
             </div>
         </div>

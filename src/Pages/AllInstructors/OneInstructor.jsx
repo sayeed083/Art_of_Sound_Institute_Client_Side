@@ -13,11 +13,16 @@ const OneInstructor = ({ inst }) => {
                 <figure><img src={instructorImage} alt="car!" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Name: {instructorName} </h2>
-                    <p>Class:{classesTaken[1]} </p>
                     <p>Email: {email}</p>
+                    <p>Class:{classesTaken[0]}, {classesTaken[1]} </p>
                     <p>Classes Taken:{numberOfClassesTaken}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn bg-cyan-300">Select</button>
+                        <button className="btn bg-cyan-300">Details</button>
+                        {/* ------------- */}
+
+
+                        
+                        {/* ------------- */}
                     </div>
                 </div>
             </div>

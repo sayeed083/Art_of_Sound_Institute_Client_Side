@@ -11,9 +11,6 @@ const SinglePopularClass = ({ oneSingleClass }) => {
                     <p>Instructor Name: {instructor}</p>
                     <p>Available seats: {availableSeats}</p>
                     <p>Price: $ {price}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn bg-cyan-300">Select</button>
-                    </div>
                 </div>
             </div>
         </div>
