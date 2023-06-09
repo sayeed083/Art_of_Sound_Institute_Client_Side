@@ -1,11 +1,40 @@
 import { FaTrashAlt, FaUserAlt, FaUserShield } from "react-icons/fa";
+import Swal from "sweetalert2";
 import useClass from "../../../../hooks/useClass";
 
 
 const ManageClasses = () => {
 
-    const [classes] = useClass();
+    const [classes, refetch] = useClass();
     const pendingClasses = classes.filter(pendSingleCls => pendSingleCls.status === 'pending')
+
+
+
+    const handleApprove = approveOrDeleteClass => {
+        console.log("Approved");
+        fetch(`http://localhost:5000/classes/status/${approveOrDeleteClass._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    // refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${approveOrDeleteClass.name} is Approved.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+
+    const handleDeny = approveOrDeleteClass => {
+        console.log("deny tomare nimu na");
+    }
 
 
     return (
@@ -37,7 +66,7 @@ const ManageClasses = () => {
                     <tbody>
                         {
                             pendingClasses.map((approveOrDeleteClass) => <tr key={approveOrDeleteClass._id}>
- 
+
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
@@ -54,9 +83,9 @@ const ManageClasses = () => {
                                 <td>{approveOrDeleteClass.status === 'approve' ? 'approve' : (approveOrDeleteClass.status === 'denied' ? 'denied' : approveOrDeleteClass.status)}</td>
 
                                 {/* Action Part */}
-                                <td><button className="btn btn-ghost bg-sky-600  text-white"><FaUserShield></FaUserShield></button></td>
+                                <td><button onClick={() => handleApprove(approveOrDeleteClass)} className="btn btn-ghost bg-sky-600  text-white"><FaUserShield></FaUserShield></button></td>
 
-                                <td><button className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt></button>
+                                <td><button onClick={() => handleDeny(approveOrDeleteClass)} className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt></button>
                                 </td>
 
                                 <td><button className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
