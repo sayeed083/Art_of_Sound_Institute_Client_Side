@@ -18,8 +18,24 @@ const Navbar = () => {
         <li className="text-lg"><Link to="/allInstructors">Instructors</Link></li>
         <li className="text-lg"><Link to="/allClasses">Classes</Link></li>
         <Switcher></Switcher>
-        {user && <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>}
+        {user && 
+        
+        <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>}
     </>
+
+// {user && isAdmin ?
+//     <li className="text-lg"><Link to="/dashboard/manageClasses">Dashboard</Link></li>
+//     :
+//   user &&  isInstructor ?
+//         <li className="text-lg"><Link to="/dashboard/addClass">Dashboard</Link></li>
+//         :
+//         user &&
+//         <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>
+
+// }
+
+
+
 
 
     return (

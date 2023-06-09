@@ -2,7 +2,7 @@
 
 const MyClasses = () => {
     return (
-        <div>
+        <div className="bg-sky-400">
             <h2>This is My Class from Instructor</h2>
         </div>
     );
