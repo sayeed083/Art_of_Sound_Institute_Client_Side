@@ -1,10 +1,12 @@
 import useClass from "../../../../hooks/useClass";
+import useMyClasses from "../../../../hooks/useMyClasses";
 
 
 const MyClasses = () => {
-    const [classes] = useClass()
+    // const [classes] = useClass()
+    // const pendingClasses = classes.filter(pendSingleCls => pendSingleCls.status === 'pending')
+    const [myInstructorClass] = useMyClasses()
 
-    const pendingClasses = classes.filter(pendSingleCls => pendSingleCls.status === 'pending')
 
 
     return (
@@ -34,7 +36,7 @@ const MyClasses = () => {
                     </thead>
                     <tbody>
                         {
-                            classes.map((sClass, index) => <tr key={sClass._id}>
+                            myInstructorClass.map((sClass, index) => <tr key={sClass._id}>
                                 <th>{index + 1}</th>
                                 <td>{sClass.name}</td>
                                 <td>{sClass.instructor}</td>
@@ -47,7 +49,7 @@ const MyClasses = () => {
                                     {sClass.status === "denied" ? (
                                         sClass.feedback
                                     ) : (
-                                        <span>No feedback</span>
+                                        <span>All Ok</span>
                                     )}
                                 </td>
 
