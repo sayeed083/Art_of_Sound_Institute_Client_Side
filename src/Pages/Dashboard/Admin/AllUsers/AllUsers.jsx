@@ -13,49 +13,49 @@ const AllUsers = () => {
     })
 
 
-// instructor
-    const handleMakeAdmin = user =>{
+    // instructor
+    const handleMakeAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.modifiedCount){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${user.name} is now an Admin.`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is now an Admin.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     const handleMakeInstructor = user => {
         fetch(`http://localhost:5000/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.modifiedCount){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${user.name} is now an Respectable Instructor.`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is now an Respectable Instructor.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
 
     }
 
-
+    //TODO: Handle The Delete and Delete a user
     const handleDelete = user => {
 
     }
@@ -82,17 +82,17 @@ const AllUsers = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{ user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-sky-600  text-white"><FaUserShield></FaUserShield></button> 
-                                    }</td>
-                                <td>{ user.role === 'instructor' ? 'instructor' :
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt></button> 
-                                    }</td>
+                                <td>{user.role === 'admin' ? 'admin' :
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-sky-600  text-white"><FaUserShield></FaUserShield></button>
+                                }</td>
+                                <td>{user.role === 'instructor' ? 'instructor' :
+                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt></button>
+                                }</td>
                                 <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
                             </tr>)
                         }
-                        
-                        
+
+
                     </tbody>
                 </table>
             </div>

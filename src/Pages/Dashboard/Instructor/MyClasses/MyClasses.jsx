@@ -1,4 +1,4 @@
-import useClass from "../../../../hooks/useClass";
+
 import useMyClasses from "../../../../hooks/useMyClasses";
 
 
@@ -12,10 +12,9 @@ const MyClasses = () => {
     return (
         <div className="">
             <h2 className="text-center text-5xl mb-10">My Classes</h2>
-            {/* ================ */}
 
-
-
+            
+            {/* ========TABLE======== */}
 
 
             <div className="overflow-x-auto">
@@ -63,46 +62,7 @@ const MyClasses = () => {
                 </table>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {/* ================ */}
+            {/* ========TABLE======== */}
 
 
         </div>
