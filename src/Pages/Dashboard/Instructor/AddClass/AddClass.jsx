@@ -1,14 +1,17 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import img1 from "../../../../assets/background (1).jpg"
 import img2 from "../../../../assets/background (2).jpg"
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 
 const imgToken = import.meta.env.VITE_Image_Upload_Token;
 
 const AddClass = () => {
 
+    const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_URl = `https://api.imgbb.com/1/upload?key=${imgToken}`
@@ -78,13 +81,13 @@ const AddClass = () => {
                                 <label className="label">
                                     <span className="label-text text-white">Instructor Name</span>
                                 </label>
-                                <input type="text" {...register("instructor", { required: true })} name="instructor" placeholder="Instructor Name" className="input input-bordered bg-sky-200" />
+                                <input type="text" defaultValue={user?.displayName} {...register("instructor", { required: true })} name="instructor" placeholder="Instructor Name" className="input input-bordered bg-sky-200" readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-white">Instructor Email</span>
                                 </label>
-                                <input type="email" {...register("email", { required: true })} name="email" placeholder="Instructor Email" className="input input-bordered bg-sky-200" />
+                                <input type="email" defaultValue={user?.email} {...register("email", { required: true })} name="email" placeholder="Instructor Email" className="input input-bordered bg-sky-200" readOnly />
                             </div>
                         </div>
                         <div className="flex gap-20">
