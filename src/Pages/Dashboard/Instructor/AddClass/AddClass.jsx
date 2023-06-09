@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import img1 from "../../../../assets/background (1).jpg"
-import img2 from "../../../../assets/background (2).jpg"
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../../providers/AuthProvider";
 
@@ -31,7 +30,6 @@ const AddClass = () => {
                     const imageURL = imageResponse.data.display_url;
                     const { name, instructor, email, availableSeats, price } = data;
                     const newCls = { name, instructor, email, availableSeats: parseInt(availableSeats), price: parseFloat(price), image: imageURL }
-                    console.log(newCls);
                     axiosSecure.post('/classes', newCls)
                         .then(data => {
                             console.log('after posting new Class', data.data)

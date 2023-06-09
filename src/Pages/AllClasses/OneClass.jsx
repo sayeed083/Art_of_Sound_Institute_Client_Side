@@ -18,6 +18,7 @@ const OneClass = ({ classSingle }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    // TODO : Clean Up Comments
 
     // const handleSelect = classSingle => {
     //     console.log(classSingle);

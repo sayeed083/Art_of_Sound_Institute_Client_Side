@@ -10,7 +10,7 @@ const MyClasses = () => {
 
 
     return (
-        <div className="">
+        <div >
             <h2 className="text-center text-5xl mb-10">My Classes</h2>
 
             
