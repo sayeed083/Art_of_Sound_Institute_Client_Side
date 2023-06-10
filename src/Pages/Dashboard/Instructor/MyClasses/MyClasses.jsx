@@ -48,7 +48,7 @@ const MyClasses = () => {
                                     {sClass.status === "denied" ? (
                                         sClass.feedback
                                     ) : (
-                                        <span>All Ok</span>
+                                        <span>{''}</span>
                                     )}
                                 </td>
 

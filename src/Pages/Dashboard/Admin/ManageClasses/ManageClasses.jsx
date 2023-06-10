@@ -1,4 +1,6 @@
-import { FaTrashAlt, FaUserAlt, FaUserShield } from "react-icons/fa";
+import { useState } from "react";
+import {  FaUserAlt, FaUserShield } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useClass from "../../../../hooks/useClass";
 
@@ -7,6 +9,7 @@ const ManageClasses = () => {
 
     const [classes, refetch] = useClass();
     const pendingClasses = classes.filter(pendSingleCls => pendSingleCls.status === 'pending')
+    const [feedback, setFeedback] = useState("");
 
 
 
@@ -29,12 +32,66 @@ const ManageClasses = () => {
                     })
                 }
             })
-    }
+    };
 
 
     const handleDeny = approveOrDeleteClass => {
         console.log("deny tomare nimu na");
+        fetch(`http://localhost:5000/classes/statusDeny/${approveOrDeleteClass._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'warning',
+                        title: `Sorry We Can't Allow this ${approveOrDeleteClass.name}.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+
+
+
     }
+
+
+    // const handleSendFeedback = approveOrDeleteClass => {
+    //     fetch(`http://localhost:5000/classes/feedback/${approveOrDeleteClass._id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({ feedback: feedback }),
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             if (data.modifiedCount) {
+    //                 Swal.fire({
+    //                     position: 'top-end',
+    //                     icon: 'success',
+    //                     title: `Send Feedback About ${approveOrDeleteClass.name}.`,
+    //                     showConfirmButton: false,
+    //                     timer: 1500
+    //                 })
+    //             }
+    //         })
+
+
+    //     setFeedback('');
+    // }
+
+
+    // const showF = approveOrDeleteClass  => {
+    // fetch (`http://localhost:5000/classes/${approveOrDeleteClass._id}`)
+    // .then(res => res.json())
+    // .then(data => console.log(data))
+    //     console.log("Pacchi", `${approveOrDeleteClass._id}`);
+    // }
 
 
     return (
@@ -78,7 +135,7 @@ const ManageClasses = () => {
                                 <td>{approveOrDeleteClass.instructor}</td>
                                 <td>{approveOrDeleteClass.email}</td>
                                 <td>{approveOrDeleteClass.availableSeats}</td>
-                                <td>{approveOrDeleteClass.price}</td>
+                                <td>{approveOrDeleteClass.price} </td>
                                 {/* <td>{approveOrDeleteClass.status === 'approve' ? 'approve' : approveOrDeleteClass.status}</td> */}
                                 <td>{approveOrDeleteClass.status === 'approve' ? 'approve' : (approveOrDeleteClass.status === 'denied' ? 'denied' : approveOrDeleteClass.status)}</td>
 
@@ -87,8 +144,38 @@ const ManageClasses = () => {
 
                                 <td><button onClick={() => handleDeny(approveOrDeleteClass)} className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt></button>
                                 </td>
+                                <td>
+                                    <Link to={`/dashboard/feedBack/${approveOrDeleteClass._id}`}>
+                                        <button className="btn  bg-green-400">Update</button>
+                                    </Link>
+                                </td>
 
-                                <td><button className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+
+                                {/* <td>
+
+
+
+
+                                    <label htmlFor="my-modal" className="btn bg-green-400">See Details Here</label>
+                                            <input type="checkbox" id="my-modal" className="modal-toggle" />
+                                    <div className="modal">
+                                        <div className="modal-box w-11/12 ">
+                                            <h3 className="font-bold text-lg">Feedback</h3>
+                                            <p>{approveOrDeleteClass.name}</p>
+                                            <textarea className="textarea textarea-bordered" placeholder="Write Feedback" value={feedback}
+                                                onChange={(e) => setFeedback(e.target.value)}></textarea>
+                                            <div className="modal-action">
+                                                <button className="btn bg-rose-200" onClick={() => handleSendFeedback(approveOrDeleteClass)}>Send FeedBack</button>
+                                                <label htmlFor="my-modal" className="btn bg-cyan-300">OK</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                </td> */}
+
+
+
 
                             </tr>)
                         }

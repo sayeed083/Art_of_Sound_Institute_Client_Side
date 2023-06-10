@@ -6,6 +6,7 @@ import Main from "../Layouts/Main";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
+import GiveFeedBackPage from "../Pages/Dashboard/Admin/ManageClasses/GiveFeedBackPage";
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import AddClass from "../Pages/Dashboard/Instructor/AddClass/AddClass";
 import MyClasses from "../Pages/Dashboard/Instructor/MyClasses/MyClasses";
@@ -78,6 +79,11 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: "myClasses",
           element: <MyClasses></MyClasses>
+        },
+        {
+          path: "feedBack/:id",
+          element: <GiveFeedBackPage></GiveFeedBackPage>,
+          loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
         },
         // Admin Side Routes :)
         {

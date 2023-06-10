@@ -56,6 +56,7 @@ const AddClass = () => {
             <div className="hero min-h-screen" style={{ backgroundImage: `url("${img1}")` }}>
 
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-red-700 bg-opacity-25 ">
+                    <h2 className="text-center text-6xl text-slate-800 underline">Add A Class</h2>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body w-[950px] bg-transparent ">
                         <div className="form-control ">
                             <label className="label">
@@ -118,7 +119,7 @@ const AddClass = () => {
                         <div className="form-control mt-6">
                             <input className="btn bg-emerald-400" type="submit" value="Add Class" />
                         </div>
-
+                        <p className="text-end text-warning"><small>*Please wait some moment if it not added instantly</small></p>
 
 
                     </form>
