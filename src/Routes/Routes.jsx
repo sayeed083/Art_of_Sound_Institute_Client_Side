@@ -14,6 +14,7 @@ import MyEnrolledClass from "../Pages/Dashboard/Student/MyEnrolledClass/MyEnroll
 import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass/MySelectedClass";
 import Payment from "../Pages/Dashboard/Student/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/Student/Payment/PaymentHistory";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
@@ -25,6 +26,7 @@ import PrivateRoute from "./PrivateRoute";
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: "/",
@@ -52,6 +54,7 @@ import PrivateRoute from "./PrivateRoute";
     {
       path: "dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         
         {

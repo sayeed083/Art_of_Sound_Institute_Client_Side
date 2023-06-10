@@ -8,7 +8,7 @@ import useClass from "../../../../hooks/useClass";
 const ManageClasses = () => {
 
     const [classes] = useClass();
-    const pendingClasses = classes.filter(pendSingleCls => pendSingleCls.status === 'pending')
+    // const pendingClasses = classes.filter(pendSingleCls => pendSingleCls.status === 'pending')
 
 
 
@@ -63,7 +63,7 @@ const ManageClasses = () => {
 
     return (
         <div>
-            <h2 className="text-center text-5xl mb-5">Manage Classes</h2>
+            <h2 className="text-center text-5xl mb-5 underline">Manage Classes</h2>
 
 
 
@@ -89,7 +89,7 @@ const ManageClasses = () => {
                     </thead>
                     <tbody>
                         {
-                            pendingClasses.map((approveOrDeleteClass) => <tr key={approveOrDeleteClass._id}>
+                            classes.slice(8).map((approveOrDeleteClass) => <tr key={approveOrDeleteClass._id}>
 
                                 <td>
                                     <div className="avatar">

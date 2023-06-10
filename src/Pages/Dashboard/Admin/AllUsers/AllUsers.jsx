@@ -62,7 +62,7 @@ const AllUsers = () => {
 
     return (
         <div>
-            <h2>All Users: {users.length}</h2>
+            <h2 className="text-center text-5xl mb-5 underline">Manage Users</h2>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}

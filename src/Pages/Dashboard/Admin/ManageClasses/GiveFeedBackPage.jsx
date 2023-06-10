@@ -45,10 +45,6 @@ const GiveFeedBackPage = () => {
 
     return (
         <div>
-            <h2>Give Feed back: {giveFeedBack.name}</h2>
-
-
-
             <div className="hero min-h-screen bg-cyan-200">
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
