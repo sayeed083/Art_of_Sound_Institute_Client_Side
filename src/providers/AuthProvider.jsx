@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribed = onAuthStateChanged(auth, loggedUser => {
             console.log('Login USER auth-state observer', loggedUser);
             setUser(loggedUser);
-            setLoading(false)
+            // setLoading(false)
 
             if (loggedUser) {
                 axios.post('http://localhost:5000/jwt', { email: loggedUser.email })
@@ -60,15 +60,9 @@ const AuthProvider = ({ children }) => {
             }
             else {
                 localStorage.removeItem('access-token')
-                // setLoading(false)
+                setLoading(false)
             }
             // setLoading(false)
-
-
-
-
-
-
 
         })
         return () => {

@@ -7,7 +7,7 @@ const HomeSlider = () => {
     return (
         <div className="pt-[102px]">
 
-            
+            {/* TODO Change The SLider */}
 
 
             <Carousel>

@@ -40,7 +40,7 @@ const Dashboard = () => {
                                 <>
                                     <li><NavLink to="/dashboard/mySelectedClass"><FaShoppingCart></FaShoppingCart> My Selected Class</NavLink></li>
                                     <li><NavLink to="/dashboard/myEnrolledClass"><FaCalendarAlt></FaCalendarAlt> My Enrolled Classes</NavLink></li>
-                                    <li><NavLink to="/dashboard/payment"><FaHome></FaHome> Payment</NavLink></li>
+                                    {/* <li><NavLink to="/dashboard/payment"><FaHome></FaHome> Payment</NavLink></li> */}
                                     <li><NavLink to="/dashboard/paymentHistory"><FaWallet></FaWallet> Payment History</NavLink></li>
                                 </>
                     }
