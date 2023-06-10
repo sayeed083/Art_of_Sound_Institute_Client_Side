@@ -66,8 +66,9 @@ import PrivateRoute from "./PrivateRoute";
           element: <MyEnrolledClass></MyEnrolledClass>
         },
         {
-          path: "payment",
-          element: <Payment></Payment>
+          path: "payment/:id",
+          element: <Payment></Payment>,
+          loader: ({params}) => fetch(`http://localhost:5000/selectedClass/${params.id}`)
         },
         {
           path: "paymentHistory",

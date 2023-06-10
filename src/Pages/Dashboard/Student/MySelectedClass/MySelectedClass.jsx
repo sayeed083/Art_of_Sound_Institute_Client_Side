@@ -1,11 +1,12 @@
 import useSelectClass from "../../../../hooks/useSelectClass";
-import {FaTrashAlt} from "react-icons/fa"
+import { FaTrashAlt, FaWallet } from "react-icons/fa"
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MySelectedClass = () => {
     const [selectedClass, refetch] = useSelectClass()
-    
+
     const handleDelete = sClass => {
         Swal.fire({
             title: 'Are you sure?',
@@ -53,6 +54,7 @@ const MySelectedClass = () => {
                             <th>Instructor Name</th>
                             <th>Price</th>
                             <th>Action</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,8 +83,17 @@ const MySelectedClass = () => {
                                 </td>
                                 <td className="text-end">${sClass.price}</td>
                                 <td>
-                                    <button onClick={() => handleDelete(sClass)} className="btn btn-ghost text-xl bg-lime-500 text-white"><FaTrashAlt></FaTrashAlt></button>
+                                    <button onClick={() => handleDelete(sClass)} className="btn btn-ghost text-xl bg-red-500 text-white"><FaTrashAlt></FaTrashAlt></button>
                                 </td>
+
+                                <td>
+                                    <Link to={`/dashboard/payment/${sClass._id}`}>
+                                        <button className="btn btn-outline">Pay<FaWallet className="text-xl text-blue-500"></FaWallet></button>
+                                    </Link>
+                                </td>
+
+
+
                             </tr>)}
 
 
