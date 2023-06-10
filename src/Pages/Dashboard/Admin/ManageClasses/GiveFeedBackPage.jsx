@@ -11,18 +11,11 @@ const GiveFeedBackPage = () => {
         event.preventDefault();
 
         const form = event.target;
-        
+
         const feedback = form.feedback.value;
         const feedbackUpdated = {
             feedback
         }
-        console.log(feedbackUpdated);
-
-
-
-
-
-
 
 
         fetch(`http://localhost:5000/classes/feedback/${giveFeedBack._id}`, {
@@ -79,7 +72,7 @@ const GiveFeedBackPage = () => {
 
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Send Feedback" />
+                                <input className="btn btn-info" type="submit" value="Send Feedback" />
                             </div>
                         </div>
                     </form>
