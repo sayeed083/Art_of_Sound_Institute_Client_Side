@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const MySelectedClass = () => {
     const [selectedClass, refetch] = useSelectClass()
+    const filteredSelectedClass = selectedClass.filter(sClass => !sClass.payment);
 
     const handleDelete = sClass => {
         Swal.fire({
@@ -58,7 +59,7 @@ const MySelectedClass = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {selectedClass.map((sClass, index) =>
+                        {filteredSelectedClass.map((sClass, index) =>
                             <tr
                                 key={sClass._id}
                             >

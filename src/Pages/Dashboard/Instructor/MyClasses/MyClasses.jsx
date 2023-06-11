@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import useMyClasses from "../../../../hooks/useMyClasses";
 
 
@@ -13,7 +14,7 @@ const MyClasses = () => {
         <div >
             <h2 className="text-center text-5xl mb-10">My Classes</h2>
 
-            
+
             {/* ========TABLE======== */}
 
 
@@ -30,7 +31,8 @@ const MyClasses = () => {
                             <th>Price</th>
                             <th>Status</th>
                             <th>Enrolled Students</th>
-                            <th>Feedback</th>
+                            <th className="text-warning">Feedback</th>
+                            <th className="text-success">Update</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +53,10 @@ const MyClasses = () => {
                                         <span>{''}</span>
                                     )}
                                 </td>
+                                <td></td>
+                                <Link to={`/dashboard/updateMyClass/${sClass._id}`}>
+                                    <button className="btn btn-outline btn-success btn-sm">Update</button>
+                                </Link>
 
 
 

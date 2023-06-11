@@ -10,6 +10,7 @@ import GiveFeedBackPage from "../Pages/Dashboard/Admin/ManageClasses/GiveFeedBac
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import AddClass from "../Pages/Dashboard/Instructor/AddClass/AddClass";
 import MyClasses from "../Pages/Dashboard/Instructor/MyClasses/MyClasses";
+import UpdateMyClass from "../Pages/Dashboard/Instructor/MyClasses/UpdateMyClass";
 import MyEnrolledClass from "../Pages/Dashboard/Student/MyEnrolledClass/MyEnrolledClass";
 import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass/MySelectedClass";
 import Payment from "../Pages/Dashboard/Student/Payment/Payment";
@@ -83,6 +84,11 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: "myClasses",
           element: <MyClasses></MyClasses>
+        },
+        {
+          path: "updateMyClass/:id",
+          element: <UpdateMyClass></UpdateMyClass>,
+          loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
         },
         {
           path: "feedBack/:id",

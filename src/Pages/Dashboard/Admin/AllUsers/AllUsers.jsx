@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { FaTrashAlt, FaUserShield, FaUserAlt } from "react-icons/fa";
+import { FaUserShield, FaUserAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
@@ -11,6 +11,7 @@ const AllUsers = () => {
         const res = await axiosSecure.get('/users')
         return res.data;
     })
+
 
 
     // instructor
@@ -32,6 +33,9 @@ const AllUsers = () => {
                     })
                 }
             })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     const handleMakeInstructor = user => {
@@ -52,13 +56,13 @@ const AllUsers = () => {
                     })
                 }
             })
+            .catch((error) => {
+                console.error(error);
+            });
 
     }
 
-    //TODO: Handle The Delete and Delete a user
-    const handleDelete = user => {
 
-    }
 
     return (
         <div>
@@ -71,9 +75,9 @@ const AllUsers = () => {
                             <th>SI No</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Role </th>
                             <th>Role (Admin)</th>
                             <th>Role (Instructor)</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,13 +86,13 @@ const AllUsers = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-sky-600  text-white"><FaUserShield></FaUserShield></button>
-                                }</td>
-                                <td>{user.role === 'instructor' ? 'instructor' :
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt></button>
-                                }</td>
-                                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+                                <td>{user.role === 'admin' ? 'admin' : 'student' && user.role === 'instructor' ? 'instructor' : 'student'}</td>
+                                <td>
+                                    <button onClick={() => handleMakeAdmin(user)} disabled={user.role === "admin" || user.role === "instructor"} className="btn btn-ghost bg-sky-600  text-white"><FaUserShield></FaUserShield><span className="text-[10px]">Make Admin</span></button>
+                                </td>
+                                <td>
+                                    <button onClick={() => handleMakeInstructor(user)} disabled={user.role === "admin" || user.role === "instructor"} className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt><span className="text-[10px]">Make Instructor</span></button>
+                                </td>
                             </tr>)
                         }
 

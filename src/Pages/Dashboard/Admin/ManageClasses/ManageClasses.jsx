@@ -1,5 +1,6 @@
 
-import { FaUserAlt, FaUserShield } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
+import { RxCrossCircled } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useClass from "../../../../hooks/useClass";
@@ -107,9 +108,9 @@ const ManageClasses = () => {
                                 <td>{approveOrDeleteClass.status === 'approve' ? 'approve' : (approveOrDeleteClass.status === 'denied' ? 'denied' : approveOrDeleteClass.status)}</td>
 
                                 {/* Action Part */}
-                                <td><button onClick={() => handleApprove(approveOrDeleteClass)} className="btn btn-ghost bg-sky-600  text-white"><FaUserShield></FaUserShield></button></td>
+                                <td><button onClick={() => handleApprove(approveOrDeleteClass)} disabled={approveOrDeleteClass.status === "approve"} className="btn btn-ghost  text-white"><FaCheckCircle className="text-green-600 text-2xl"></FaCheckCircle></button></td>
 
-                                <td><button onClick={() => handleDeny(approveOrDeleteClass)} className="btn btn-ghost bg-lime-600  text-white"><FaUserAlt></FaUserAlt></button>
+                                <td><button onClick={() => handleDeny(approveOrDeleteClass)} className="btn btn-ghost   text-white"><RxCrossCircled className="text-red-600 text-2xl"></RxCrossCircled></button>
                                 </td>
                                 <td>
                                     <Link to={`/dashboard/feedBack/${approveOrDeleteClass._id}`}>
