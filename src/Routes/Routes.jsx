@@ -69,7 +69,7 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: "payment/:id",
           element: <Payment></Payment>,
-          loader: ({params}) => fetch(`http://localhost:5000/selectedClass/${params.id}`)
+          loader: ({params}) => fetch(`https://a-12-summer-camp-school-server.vercel.app/selectedClass/${params.id}`)
         },
         {
           path: "paymentHistory",
@@ -88,12 +88,12 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: "updateMyClass/:id",
           element: <UpdateMyClass></UpdateMyClass>,
-          loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+          loader: ({params}) => fetch(`https://a-12-summer-camp-school-server.vercel.app/classes/${params.id}`)
         },
         {
           path: "feedBack/:id",
           element: <GiveFeedBackPage></GiveFeedBackPage>,
-          loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+          loader: ({params}) => fetch(`https://a-12-summer-camp-school-server.vercel.app/classes/${params.id}`)
         },
         // Admin Side Routes :)
         {

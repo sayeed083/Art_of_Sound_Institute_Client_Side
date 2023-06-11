@@ -1,6 +1,7 @@
 import Cover from "../../components/Cover/Cover";
 import useClass from "../../hooks/useClass";
 import OneClass from "./OneClass";
+import { Slide } from "react-awesome-reveal";
 
 
 
@@ -12,12 +13,13 @@ const AllClasses = () => {
 
     return (
         <div className="pt-2">
-            <Cover image={'https://i.postimg.cc/25DF7zjL/acoustic.jpg'} title="All Classes"></Cover>
+            <Slide>
+                <Cover image={'https://i.postimg.cc/25DF7zjL/acoustic.jpg'} title="All Classes"></Cover> </Slide>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-5 mb-5">
                 {
                     filteringApprovedClasses.map(classSingle => <OneClass
-                    key={classSingle._id}
-                    classSingle={classSingle}
+                        key={classSingle._id}
+                        classSingle={classSingle}
                     ></OneClass>)
                 }
             </div>

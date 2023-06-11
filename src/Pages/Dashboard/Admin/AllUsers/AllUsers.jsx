@@ -17,7 +17,7 @@ const AllUsers = () => {
 
   
     const handleMakeAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://a-12-summer-camp-school-server.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -47,9 +47,9 @@ const AllUsers = () => {
             instructorImage, instructorName: name, email,
             yearsOfExperience
         }
-        axios.post(`http://localhost:5000/instructors`, newIns)
+        axios.post(`https://a-12-summer-camp-school-server.vercel.app/instructors`, newIns)
 
-        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+        fetch(`https://a-12-summer-camp-school-server.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

@@ -20,7 +20,7 @@ const MySelectedClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/selectedClass/${sClass._id}`, {
+                fetch(`https://a-12-summer-camp-school-server.vercel.app/selectedClass/${sClass._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

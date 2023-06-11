@@ -21,7 +21,7 @@ const Register = () => {
 
                         const saveTheUser = { name: data.name, email: data.email, instructorImage:data.photoURL, yearsOfExperience: 10
                         }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://a-12-summer-camp-school-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

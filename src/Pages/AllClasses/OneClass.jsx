@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import { Fade } from "react-awesome-reveal";
 
 const OneClass = ({ classSingle }) => {
 
@@ -53,7 +54,7 @@ const OneClass = ({ classSingle }) => {
             });
         } else {
             const addedClasses = { classId: _id, name, image, price, instructor, email: user.email };
-            fetch('http://localhost:5000/selectedClass', {
+            fetch('https://a-12-summer-camp-school-server.vercel.app/selectedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -81,30 +82,31 @@ const OneClass = ({ classSingle }) => {
 
     return (
         <div>
-
-            <div className={redCard}>
-                <figure><img src={image} alt="car!" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Class Name: {name} </h2>
-                    <p>Instructor Name: {instructor}</p>
-                    <p>Available seats: {availableSeats}</p>
-                    <p>Price: $ {price}</p>
-                    <div className="card-actions justify-end">
-                        <button
-                            onClick={handleSelect}
-                            className="btn bg-cyan-300"
-                            disabled={availableSeats === 0 || isAdmin || isInstructor}
-                        >
-                            Select
-                        </button>
-
-
+            <Fade delay={500}>
+                <div className={redCard}>
+                    <figure><img src={image} alt="car!" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Class Name: {name} </h2>
+                        <p>Instructor Name: {instructor}</p>
+                        <p>Available seats: {availableSeats}</p>
+                        <p>Price: $ {price}</p>
+                        <div className="card-actions justify-end">
+                            <button
+                                onClick={handleSelect}
+                                className="btn bg-cyan-300"
+                                disabled={availableSeats === 0 || isAdmin || isInstructor}
+                            >
+                                Select
+                            </button>
 
 
 
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Fade>
 
         </div>
     );

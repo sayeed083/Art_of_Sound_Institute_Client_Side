@@ -1,9 +1,10 @@
-
+import {   Slide } from "react-awesome-reveal";
 
 const SinglePopularClass = ({ oneSingleClass }) => {
     const { image, name, instructor, availableSeats, price } = oneSingleClass;
     return (
         <div>
+            <Slide delay={500}>
             <div className="card w-96 glass">
                 <figure><img src={image} alt="car!" /></figure>
                 <div className="card-body">
@@ -13,6 +14,7 @@ const SinglePopularClass = ({ oneSingleClass }) => {
                     <p>Price: $ {price}</p>
                 </div>
             </div>
+            </Slide>
         </div>
     );
 };

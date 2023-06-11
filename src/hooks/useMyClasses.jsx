@@ -15,7 +15,7 @@ const useMyClasses = () => {
         queryKey: ['myInstructorClass', user?.email],
         enabled: !loading && !!user?.email && !!localStorage.getItem("access-token"),
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/myInstructorClass?email=${user?.email}`, {
+            const response = await fetch(`https://a-12-summer-camp-school-server.vercel.app/myInstructorClass?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${token}`
                 }

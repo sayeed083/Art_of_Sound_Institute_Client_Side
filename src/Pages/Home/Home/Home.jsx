@@ -6,6 +6,7 @@ import PopularClass from "../PopularClass/PopularClass";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 
 
+
 const Home = () => {
     return (
         <div className=" dark:bg-gray-800 dark:text-white">

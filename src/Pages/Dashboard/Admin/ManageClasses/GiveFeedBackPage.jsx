@@ -18,7 +18,7 @@ const GiveFeedBackPage = () => {
         }
 
 
-        fetch(`http://localhost:5000/classes/feedback/${giveFeedBack._id}`, {
+        fetch(`https://a-12-summer-camp-school-server.vercel.app/classes/feedback/${giveFeedBack._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

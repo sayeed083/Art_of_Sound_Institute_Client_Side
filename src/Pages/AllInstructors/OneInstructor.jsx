@@ -1,4 +1,4 @@
-import { Zoom, Bounce, Fade, Flip, Hinge, JackInTheBox, Roll, Rotate, Slide } from "react-awesome-reveal";
+import { Fade} from "react-awesome-reveal";
 
 const OneInstructor = ({ inst }) => {
 

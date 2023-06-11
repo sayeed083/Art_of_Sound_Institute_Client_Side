@@ -19,7 +19,7 @@ const UpdateMyClass = () => {
             price: parseInt(price),
             availableSeats: parseInt(availableSeats)
         }
-        fetch(`http://localhost:5000/classes/updateMyClass/${_id}`, {
+        fetch(`https://a-12-summer-camp-school-server.vercel.app/classes/updateMyClass/${_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

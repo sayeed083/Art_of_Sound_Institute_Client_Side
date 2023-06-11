@@ -7,7 +7,7 @@ const usePaymentHIstory = () => {
     const { data: paymentHistory = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['paymentsh'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/paymentsh');
+            const res = await fetch('https://a-12-summer-camp-school-server.vercel.app/paymentsh');
             return res.json();
         }
     })

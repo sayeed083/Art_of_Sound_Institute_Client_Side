@@ -15,7 +15,7 @@ const ManageClasses = () => {
 
     const handleApprove = approveOrDeleteClass => {
         console.log("Approved");
-        fetch(`http://localhost:5000/classes/status/${approveOrDeleteClass._id}`, {
+        fetch(`https://a-12-summer-camp-school-server.vercel.app/classes/status/${approveOrDeleteClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -37,7 +37,7 @@ const ManageClasses = () => {
 
     const handleDeny = approveOrDeleteClass => {
         console.log("deny tomare nimu na");
-        fetch(`http://localhost:5000/classes/statusDeny/${approveOrDeleteClass._id}`, {
+        fetch(`https://a-12-summer-camp-school-server.vercel.app/classes/statusDeny/${approveOrDeleteClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
