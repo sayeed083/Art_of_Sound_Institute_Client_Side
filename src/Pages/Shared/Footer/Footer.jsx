@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaEnvelope, FaPhoneAlt 
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center p-10 bg-teal-500 text-primary-content">
+            <footer className="footer footer-center p-10 bg-teal-500 dark:bg-sky-500 text-primary-content">
                 <div>
                     <img className="w-1/4" src="https://i.postimg.cc/tJPnZq47/spanish-guitar.png" alt="" />
                     <p className="font-bold text-xl">

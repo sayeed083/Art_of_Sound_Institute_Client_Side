@@ -42,7 +42,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar fixed z-10  max-w-screen-xl text-black dark:text-white bg-teal-700 dark:bg-cyan-500">
+            <div className="navbar  max-w-screen-xl bg-opacity-50 text-black dark:text-white bg-teal-600 dark:bg-cyan-500">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -52,6 +52,7 @@ const Navbar = () => {
                             {navsections}
                         </ul>
                     </div>
+                    <img className="w-[65px]" src="https://i.postimg.cc/tJPnZq47/spanish-guitar.png" alt="" />
                     <Link to="/" className="btn btn-ghost uppercase text-xl">Art of Sound Institute</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">

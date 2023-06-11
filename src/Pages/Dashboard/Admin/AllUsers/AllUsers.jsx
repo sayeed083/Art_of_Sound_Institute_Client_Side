@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { FaUserShield, FaUserAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
@@ -14,7 +15,7 @@ const AllUsers = () => {
 
 
 
-    // instructor
+  
     const handleMakeAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
@@ -39,6 +40,15 @@ const AllUsers = () => {
     }
 
     const handleMakeInstructor = user => {
+        const { instructorImage, name, email,
+            yearsOfExperience
+        } = user
+        const newIns = {
+            instructorImage, instructorName: name, email,
+            yearsOfExperience
+        }
+        axios.post(`http://localhost:5000/instructors`, newIns)
+
         fetch(`http://localhost:5000/users/instructor/${user._id}`, {
             method: 'PATCH'
         })

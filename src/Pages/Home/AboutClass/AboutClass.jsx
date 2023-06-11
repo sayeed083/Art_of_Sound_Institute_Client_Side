@@ -2,7 +2,7 @@
 
 const AboutClass = () => {
     return (
-        <div className="my-40">
+        <div className="mt-40">
             <div className="flex justify-evenly items-center">
                 <div>
                     <img className="rounded-xl w-[630px] relative" src="https://i.postimg.cc/gk1CZStG/card-soft-template-paper-report.jpg" alt="" />

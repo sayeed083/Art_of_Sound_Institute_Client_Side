@@ -1,5 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaUsers } from 'react-icons/fa';
+import { HiAcademicCap } from "react-icons/hi";
+import { HiBuildingLibrary } from "react-icons/hi2";
+import { SiGoogleclassroom } from "react-icons/si";
+import {  FaWallet,  FaHome, FaUsers, FaRegClipboard, FaBuilding } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 
@@ -19,27 +22,27 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
             </div>
-            <div className="drawer-side bg-teal-600">
+            <div className="drawer-side bg-sky-500" style={{ backgroundImage: `url(${"https://i.postimg.cc/P5FyLMFy/blue-painted-vinyl-arrangement-with-copy-space.jpg"})` }}>
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80">
 
                     {
                         isAdmin ? <>
-                            <li><NavLink to="/dashboard/manageClasses"><FaHome></FaHome> Manage Classes</NavLink></li>
+                            <li><NavLink to="/dashboard/manageClasses"><HiBuildingLibrary></HiBuildingLibrary> Manage Classes</NavLink></li> 
                             <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
 
                         </> :
 
                             isInstructor ? <>
-                                <li><NavLink to="/dashboard/addClass"> <FaUtensils></FaUtensils> Add A Class</NavLink></li>
-                                <li><NavLink to="/dashboard/myClasses"> <FaUtensils></FaUtensils> My Classes</NavLink></li>
+                                <li><NavLink to="/dashboard/addClass"><HiAcademicCap></HiAcademicCap> Add A Class</NavLink></li>
+                                <li><NavLink to="/dashboard/myClasses"><SiGoogleclassroom></SiGoogleclassroom> My Classes</NavLink></li>
 
                             </> :
 
 
                                 <>
-                                    <li><NavLink to="/dashboard/mySelectedClass"><FaShoppingCart></FaShoppingCart> My Selected Class</NavLink></li>
-                                    <li><NavLink to="/dashboard/myEnrolledClass"><FaCalendarAlt></FaCalendarAlt> My Enrolled Classes</NavLink></li>
+                                    <li><NavLink to="/dashboard/mySelectedClass"><FaRegClipboard></FaRegClipboard> My Selected Class</NavLink></li>
+                                    <li><NavLink to="/dashboard/myEnrolledClass"><FaBuilding></FaBuilding> My Enrolled Classes</NavLink></li>
                                     {/* <li><NavLink to="/dashboard/payment"><FaHome></FaHome> Payment</NavLink></li> */}
                                     <li><NavLink to="/dashboard/paymentHistory"><FaWallet></FaWallet> Payment History</NavLink></li>
                                 </>
@@ -49,7 +52,7 @@ const Dashboard = () => {
 
 
                     <div className="divider"></div>
-                    <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
+                    <li ><NavLink to="/"><FaHome></FaHome>Go To Home</NavLink> </li>
                 </ul>
 
             </div>

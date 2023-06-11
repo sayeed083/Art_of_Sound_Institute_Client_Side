@@ -1,10 +1,11 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Fade } from "react-awesome-reveal";
 
 const HomeSlider = () => {
 
 
     return (
-        <div className="pt-[102px]">
+        <div> < Fade delay={500}>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://i.postimg.cc/zfdpk3dP/music-2.jpg" />
@@ -93,6 +94,7 @@ const HomeSlider = () => {
                     </div>
                 </div>
             </div>
+        </Fade>
         </div>
     );
 };

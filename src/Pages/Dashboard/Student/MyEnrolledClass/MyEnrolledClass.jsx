@@ -6,7 +6,7 @@ const MyEnrolledClass = () => {
     const paymentSuccessClass = selectedClass.filter(psClass => psClass.payment);
     return (
         <div>
-            <h2>ALl My Enrollments</h2>
+            <h2 className="text-center text-5xl mb-5 underline">My Enrolled Classes</h2>
             <div className="overflow-x-auto w-[720px]">
                 <table className="table w-full">
 

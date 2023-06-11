@@ -1,5 +1,6 @@
 import useInfoOfInstructors from "../../../hooks/useInfoOfInstructors";
 import SinglePopularInstructors from "./SinglePopularInstructors";
+import { Fade } from "react-awesome-reveal";
 
 
 const PopularInstructors = () => {
@@ -8,8 +9,9 @@ const PopularInstructors = () => {
 
     return (
         <div>
+            <Fade>
             <h2 className="text-center text-6xl py-20">Popular Instructors</h2>
-
+            </Fade>
 
 
 

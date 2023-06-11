@@ -11,7 +11,7 @@ const AllClasses = () => {
     const filteringApprovedClasses = classes.filter((classSingle) => classSingle.status === "approve");
 
     return (
-        <div className="pt-28">
+        <div className="pt-2">
             <Cover image={'https://i.postimg.cc/25DF7zjL/acoustic.jpg'} title="All Classes"></Cover>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-5 mb-5">
                 {

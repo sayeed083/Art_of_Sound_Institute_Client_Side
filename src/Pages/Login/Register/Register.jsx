@@ -12,7 +12,6 @@ const Register = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
@@ -20,7 +19,8 @@ const Register = () => {
                 updatedUserInfo(data.name, data.photoURL)
                     .then(() => {
 
-                        const saveTheUser = { name: data.name, email: data.email }
+                        const saveTheUser = { name: data.name, email: data.email, instructorImage:data.photoURL, yearsOfExperience: 10
+                        }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
