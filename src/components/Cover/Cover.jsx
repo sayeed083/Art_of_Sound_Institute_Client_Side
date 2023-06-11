@@ -15,5 +15,3 @@ const Cover = ({ image, title }) => {
 };
 
 export default Cover;
-
-// "https://i.postimg.cc/j2G52Wps/Background-2-5.jpg"

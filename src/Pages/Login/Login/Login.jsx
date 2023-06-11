@@ -9,7 +9,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Login = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,  } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
