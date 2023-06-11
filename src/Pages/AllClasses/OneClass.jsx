@@ -18,48 +18,7 @@ const OneClass = ({ classSingle }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // TODO : Clean Up Comments
 
-    // const handleSelect = classSingle => {
-    //     console.log(classSingle);
-    //     if (user && user.email) {
-    //         const addedClasses = { classId: _id, name, image, price, instructor, email: user.email }
-    //         fetch('http://localhost:5000/selectedClass', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //             },
-    //             body: JSON.stringify(addedClasses)
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 if (data.insertedId) {
-    //                     Swal.fire({
-    //                         position: 'top',
-    //                         icon: 'success',
-    //                         title: 'You Selected The Class',
-    //                         showConfirmButton: false,
-    //                         timer: 1500
-    //                     })
-    //                 }
-    //             })
-    //     }
-    //     else {
-    //         Swal.fire({
-    //             title: 'Please Login',
-    //             icon: 'warning',
-    //             showCancelButton: true,
-    //             confirmButtonColor: '#3085d6',
-    //             cancelButtonColor: '#d33',
-    //             confirmButtonText: 'Log In'
-    //         }).then((result) => {
-    //             if (result.isConfirmed) {
-    //                 navigate("/login", { state: { from: location } })
-    //             }
-    //         })
-    //     }
-
-    // }
 
 
     const handleSelect = () => {
@@ -131,7 +90,6 @@ const OneClass = ({ classSingle }) => {
                     <p>Available seats: {availableSeats}</p>
                     <p>Price: $ {price}</p>
                     <div className="card-actions justify-end">
-                        {/* <button onClick={() => handleSelect(classSingle)} className="btn bg-cyan-300">Select</button> */}
                         <button
                             onClick={handleSelect}
                             className="btn bg-cyan-300"
