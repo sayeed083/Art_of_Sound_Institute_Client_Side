@@ -39,7 +39,7 @@ const MySelectedClass = () => {
     }
     return (
         <div>
-            <h2>This is my selected class: {selectedClass.length}</h2>
+            <h2 className="text-center text-5xl mb-5 underline">My Selected Class</h2>
 
 
             <div className="overflow-x-auto w-[720px]">

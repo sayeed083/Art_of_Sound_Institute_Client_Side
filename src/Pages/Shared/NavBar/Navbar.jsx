@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Switcher from "../../../components/Switcher";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -18,29 +23,26 @@ const Navbar = () => {
         <li className="text-lg"><Link to="/allInstructors">Instructors</Link></li>
         <li className="text-lg"><Link to="/allClasses">Classes</Link></li>
         <Switcher></Switcher>
-        {user && 
-        
-        <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>}
+        {/* {user && <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>} */}
+    
+
+    {
+        isAdmin ?
+            <li className="text-lg"><Link to="/dashboard/manageClasses">Dashboard</Link></li>
+            :
+            isInstructor ?
+                <li className="text-lg"><Link to="/dashboard/addClass">Dashboard</Link></li>
+                : user &&
+                <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>
+
+    }
     </>
-
-// {user && isAdmin ?
-//     <li className="text-lg"><Link to="/dashboard/manageClasses">Dashboard</Link></li>
-//     :
-//   user &&  isInstructor ?
-//         <li className="text-lg"><Link to="/dashboard/addClass">Dashboard</Link></li>
-//         :
-//         user &&
-//         <li className="text-lg"><Link to="/dashboard/mySelectedClass"> Dashboard</Link></li>
-
-// }
-
-
 
 
 
     return (
         <div>
-            <div className="navbar fixed z-10 bg-opacity-30 dark:bg-opacity-30 max-w-screen-xl text-black dark:text-white bg-teal-700 dark:bg-cyan-500">
+            <div className="navbar fixed z-10  max-w-screen-xl text-black dark:text-white bg-teal-700 dark:bg-cyan-500">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -77,7 +79,7 @@ const Navbar = () => {
                             </Link>
                         </>
                     }
-                    
+
 
 
 
