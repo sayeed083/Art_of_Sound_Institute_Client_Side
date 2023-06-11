@@ -1,43 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
@@ -116,21 +77,20 @@ const CheckoutForm = ({ singleSelectClass, price }) => {
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
-            // save payment information to the server
             const payment = {
                 email: user?.email,
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-               
-                // status: 'service pending',
+                selecteddClass: singleSelectClass._id,
+                onlyAllClass: singleSelectClass.classId
+
+
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
-                    // if (res.data.result.insertedId) {
-                    if (res.data.insertedId) {
-                        // display confirm
+                    if (res.data.result.insertedId) {
                         Swal.fire({
                             position: 'top',
                             icon: 'success',
